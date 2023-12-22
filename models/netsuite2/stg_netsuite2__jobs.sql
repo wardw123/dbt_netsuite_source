@@ -29,6 +29,10 @@ final as (
         defaultbillingaddress as billing_address_id,
         defaultshippingaddress as shipping_address_id,
         parent as parent_id
+
+       --The below macro adds the fields defined within your jobs_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('jobs_pass_through_columns') }}
+
     from fields
 )
 
